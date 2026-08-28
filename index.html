@@ -1,15 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopKart</title>
-    <link rel="stylesheet" href="style.css"></link>
+    <title>My Profile | ShopKart</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Provide you code here -->
-    <h1>ShopKart</h1>
 
-    <script src="script.js"></script>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Shop<span>Kart </span></a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="cart.html">Cart</a>
+                <a href="profile.html" class="active">Profile</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ================= PROFILE BANNER ================= -->
+        <section class="profile-banner">
+            <div class="avatar" id="avatar">NS</div>
+
+            <div class="profile-intro">
+                <h1 id="bannerName">Loading...</h1>
+                <p id="bannerEmail"></p>
+                <p class="member-since">Member since <span id="bannerJoined"></span></p>
+            </div>
+
+            <div class="profile-stats">
+                <div class="stat">
+                    <strong id="statOrders">0</strong>
+                    <span>Orders</span>
+                </div>
+                <div class="stat">
+                    <strong id="statWishlist">0</strong>
+                    <span>Wishlist</span>
+                </div>
+                <div class="stat">
+                    <strong id="statAddresses">0</strong>
+                    <span>Addresses</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TABS ================= -->
+        <div class="tabs" id="tabs">
+            <button class="tab-btn active" data-tab="details">Profile details</button>
+            <button class="tab-btn" data-tab="orders">Order history</button>
+            <button class="tab-btn" data-tab="addresses">Saved addresses</button>
+        </div>
+
+        <!-- ================= TAB 1: PROFILE DETAILS ================= -->
+        <section class="tab-panel active" id="details">
+
+            <!-- Read-only view -->
+            <div class="card" id="viewMode">
+                <div class="card-head">
+                    <h2>Personal information</h2>
+                    <button class="btn btn-primary" id="editBtn">Edit profile</button>
+                </div>
+
+                <dl class="info-grid">
+                    <div class="info-item">
+                        <dt>Full name</dt>
+                        <dd id="viewName"></dd>
+                    </div>
+                    <div class="info-item">
+                        <dt>Email address</dt>
+                        <dd id="viewEmail"></dd>
+                    </div>
+                    <div class="info-item">
+                        <dt>Phone number</dt>
+                        <dd id="viewPhone"></dd>
+                    </div>
+                    <div class="info-item">
+                        <dt>Gender</dt>
+                        <dd id="viewGender"></dd>
+                    </div>
+                    <div class="info-item full">
+                        <dt>Delivery address</dt>
+                        <dd id="viewAddress"></dd>
+                    </div>
+                </dl>
+            </div>
+
+            <!-- Edit form (hidden by default) -->
+            <div class="card hidden" id="editMode">
+                <div class="card-head">
+                    <h2>Edit profile</h2>
+                </div>
+
+                <form id="profileForm" novalidate>
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="inputName">Full name</label>
+                            <input type="text" id="inputName" placeholder="e.g. Nakul Sharma">
+                            <small class="error" id="errName"></small>
+                        </div>
+
+                        <div class="field">
+                            <label for="inputEmail">Email address</label>
+                            <input type="email" id="inputEmail" placeholder="e.g. nakul@example.com">
+                            <small class="error" id="errEmail"></small>
+                        </div>
+
+                        <div class="field">
+                            <label for="inputPhone">Phone number</label>
+                            <input type="text" id="inputPhone" placeholder="10-digit mobile number">
+                            <small class="error" id="errPhone"></small>
+                        </div>
+
+                        <div class="field">
+                            <label for="inputGender">Gender</label>
+                            <select id="inputGender">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div class="field full">
+                            <label for="inputAddress">Delivery address</label>
+                            <textarea id="inputAddress" rows="3"
+                                placeholder="House no, street, city, state, PIN"></textarea>
+                            <small class="error" id="errAddress"></small>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-ghost" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= TAB 2: ORDER HISTORY ================= -->
+        <section class="tab-panel" id="orders">
+            <div class="card">
+                <div class="card-head">
+                    <h2>Order history</h2>
+                </div>
+                <div class="order-list" id="orderList"></div>
+            </div>
+        </section>
+
+        <!-- ================= TAB 3: SAVED ADDRESSES ================= -->
+        <section class="tab-panel" id="addresses">
+            <div class="card">
+                <div class="card-head">
+                    <h2>Saved addresses</h2>
+                </div>
+                <div class="address-list" id="addressList"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast message shown after saving -->
+    <div class="toast" id="toast">Profile updated</div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 ShopEase. Demo project for learning Git, GitHub and CI/CD.</p>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
 </body>
+
 </html>

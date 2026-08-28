@@ -1,1 +1,497 @@
 /* Provide you styles here */
+/* ============================================================
+   User Profile - Stylesheet
+   ShopEase E-Commerce Platform
+   ============================================================ */
+
+/* ---------- Theme variables ---------- */
+:root {
+    --ink: #1b2233;
+    --muted: #64708a;
+    --line: #e2e7f0;
+    --bg: #f6f8fc;
+    --surface: #ffffff;
+    --brand: #2f5bea;
+    --brand-dark: #2246bd;
+    --success: #0f9d58;
+    --warn: #d97706;
+    --danger: #d64545;
+    --radius: 12px;
+    --shadow: 0 2px 10px rgba(27, 34, 51, 0.06);
+}
+
+/* ---------- Base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--brand);
+}
+
+.nav a {
+    margin-left: 22px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--brand);
+}
+
+/* ---------- Profile banner ---------- */
+.profile-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin: 28px 0 20px;
+}
+
+.avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--brand);
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-intro {
+    flex: 1;
+    min-width: 200px;
+}
+
+.profile-intro h1 {
+    font-size: 24px;
+}
+
+.profile-intro p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.member-since {
+    font-size: 13px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 26px;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 20px;
+}
+
+.stat span {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.tab-btn {
+    border: 1px solid var(--line);
+    background-color: var(--surface);
+    color: var(--muted);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.tab-btn:hover {
+    color: var(--brand);
+}
+
+.tab-btn.active {
+    background-color: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ---------- Card ---------- */
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+}
+
+.card-head h2 {
+    font-size: 18px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 9px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--brand);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-dark);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border-color: var(--line);
+    color: var(--muted);
+}
+
+.btn-ghost:hover {
+    color: var(--ink);
+}
+
+.btn:focus-visible,
+.tab-btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+}
+
+/* ---------- Read-only info grid ---------- */
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.info-item.full {
+    grid-column: 1 / -1;
+}
+
+.info-item dt {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    margin-bottom: 2px;
+}
+
+.info-item dd {
+    font-size: 15px;
+}
+
+/* ---------- Form ---------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--ink);
+    background-color: #fff;
+}
+
+.field textarea {
+    resize: vertical;
+}
+
+.field input.invalid,
+.field textarea.invalid {
+    border-color: var(--danger);
+}
+
+.error {
+    display: block;
+    min-height: 16px;
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 4px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* ---------- Orders ---------- */
+.order-item {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.order-id {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.order-date {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.order-products {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.order-total {
+    font-weight: 700;
+}
+
+.badge {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.badge-delivered {
+    background-color: #e6f6ec;
+    color: var(--success);
+}
+
+.badge-shipped {
+    background-color: #e8eeff;
+    color: var(--brand);
+}
+
+.badge-processing {
+    background-color: #fdf1e0;
+    color: var(--warn);
+}
+
+.badge-cancelled {
+    background-color: #fdeaea;
+    color: var(--danger);
+}
+
+/* ---------- Addresses ---------- */
+.address-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.address-item {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.address-item.default {
+    border-color: var(--brand);
+}
+
+.address-label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.address-text {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.tag {
+    font-size: 11px;
+    background-color: #e8eeff;
+    color: var(--brand);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 6px;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%) translateY(20px);
+    background-color: var(--ink);
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    background-color: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 18px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+
+    .info-grid,
+    .form-grid,
+    .address-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-banner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .profile-stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav a {
+        margin-left: 14px;
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toast {
+        transition: none;
+    }
+}
